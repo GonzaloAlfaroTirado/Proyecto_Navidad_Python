@@ -11,3 +11,15 @@ class Tablero:
 
         self._colocar_minas()
         self._calcular_numeros()
+
+    def _colocar_minas(self):
+        # Coloca minas aleatoriamente sin repetir posiciones
+        minas_colocadas = 0
+
+        while minas_colocadas < self.minas:
+            f = random.randint(0, self.filas - 1)
+            c = random.randint(0, self.columnas - 1)
+
+            if self.tablero[f][c] != -1:
+                self.tablero[f][c] = -1
+                minas_colocadas += 1
