@@ -23,3 +23,11 @@ class Tablero:
             if self.tablero[f][c] != -1:
                 self.tablero[f][c] = -1
                 minas_colocadas += 1
+                
+    def _calcular_numeros(self):
+        # Calcula cuántas minas rodean cada casilla
+        for f in range(self.filas):
+            for c in range(self.columnas):
+                if self.tablero[f][c] == -1:
+                    continue
+                self.tablero[f][c] = self._contar_minas_vecinas(f, c)
