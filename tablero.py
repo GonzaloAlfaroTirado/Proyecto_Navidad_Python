@@ -25,9 +25,25 @@ class Tablero:
                 minas_colocadas += 1
                 
     def _calcular_numeros(self):
-        # Calcula cuántas minas rodean cada casilla
         for f in range(self.filas):
             for c in range(self.columnas):
                 if self.tablero[f][c] == -1:
                     continue
                 self.tablero[f][c] = self._contar_minas_vecinas(f, c)
+
+    def _contar_minas_vecinas(self, fila, columna):
+        # Cuenta minas en las 8 casillas vecinas
+        direcciones = [
+            (-1, -1), (-1, 0), (-1, 1),
+            (0, -1),          (0, 1),
+            (1, -1),  (1, 0), (1, 1)
+        ]
+
+        contador = 0
+        for df, dc in direcciones:
+            nf, nc = fila + df, columna + dc
+            if 0 <= nf < self.filas and 0 <= nc < self.columnas:
+                if self.tablero[nf][nc] == -1:
+                    contador += 1
+
+        return contador
