@@ -37,7 +37,7 @@ def es_posicion_valida(tablero, fila, col, longitud, orientacion):
                         return False
     return True
 
-    def colocar_barcos_con_registro(tablero, barcos_config):
+def colocar_barcos_con_registro(tablero, barcos_config):
     lista_barcos = []
     for nombre, longitud in barcos_config.items():
         colocado = False
@@ -53,4 +53,4 @@ def es_posicion_valida(tablero, fila, col, longitud, orientacion):
                     coords_barco.append((r, nc))
                 lista_barcos.append({"nombre": nombre, "coords": coords_barco})
                 colocado = True
-    return lista_barcos
+        return lista_barcos

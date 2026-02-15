@@ -2,7 +2,7 @@ import os
 import random
 import time
 from tablero_hundir_la_flota import crear_tablero, mostrar_tableros_paralelos, colocar_barcos_con_registro
-import juego_hundir_la_flota as logica
+import juego as logica
 
 # Configuración: Nombre del barco y su longitud
 BARCOS_A_COLOCAR = {
